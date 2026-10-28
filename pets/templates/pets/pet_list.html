@@ -1,0 +1,66 @@
+
+
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pet List | BARK & MEOW</title>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="logo">🐾 BARK &amp; MEOW</div>
+        <div class="nav-links">
+            <a href="{% url 'home' %}">Home</a>
+            <a href="{% url 'add_pet' %}">Add Pet</a>
+        </div>
+    </nav>
+
+    <section class="section">
+        <h1>Our Pets</h1>
+
+        <div class="table-container">
+            <table>
+                <tr>
+                    <th>Name</th>
+                    <th>Species</th>
+                    <th>Breed</th>
+                    <th>Age (Months)</th>
+                    <th>Gender</th>
+                    <th>Price</th>
+                </tr>
+
+                {% for pet in pets %}
+                <tr>
+                    <td>
+                                   {{ pet.name }}
+                     <a href="{% url 'edit_pet' pet.id %}">Edit</a>
+                    </td>
+                    <td>{{ pet.species }}</td>
+                    <td>{{ pet.breed }}</td>
+                    <td>{{ pet.age }}</td>
+                    <td>{{ pet.gender }}</td>
+                    <td>₹{{ pet.price }}</td>
+                    td>
+                        <a href="{% url 'delete_pet' pet.id %}">Delete</a>
+                </tr>
+                {% empty %}
+                <tr>
+                    <td colspan="6">No pets added yet.</td>
+                </tr>
+                {% endfor %}
+            </table>
+        </div>
+
+        <br>
+        <a class="btn" href="{% url 'add_pet' %}">Add New Pet</a>
+        <a class="btn" href="{% url 'home' %}">Back to Home</a>
+    </section>
+
+    <footer class="footer">
+        <p>© 2026 BARK &amp; MEOW | Every Pet Deserves Love 🐾</p>
+    </footer>
+</body>
+</html>

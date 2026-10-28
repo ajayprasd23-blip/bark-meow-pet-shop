@@ -1,0 +1,61 @@
+
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product List | BARK & MEOW</title>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+   
+</head>
+<body>
+
+    <h1>🐾 BARK &amp; MEOW - Pet Shop Products</h1>
+
+    <table border="1">
+        <tr>
+            <th>Image</th>
+            <th>Product Name</th>
+            <th>Category</th>
+            <th>Price</th>
+            <th>Stock</th>
+            <th>Actions</th>
+        </tr>
+
+        {% for product in products %}
+        <tr>
+            <td>
+                {% if product.image %}
+                    <img src="{{ product.image.url }}"
+                         alt="{{ product.name }}"
+                         width="80">
+                {% else %}
+                    No Image
+                {% endif %}
+            </td>
+            <td>{{ product.name }}</td>
+            <td>{{ product.category }}</td>
+            <td>₹{{ product.price }}</td>
+            <td>{{ product.stock }}</td>
+            
+            
+            <td>
+                <a href="{% url 'edit_product' product.id %}">Edit</a>
+                <a href="{% url 'delete_product' product.id %}">Delete</a>
+            </td>
+        </tr>
+        {% empty %}
+        <tr>
+            <td colspan="6">No products available</td>
+        </tr>
+        {% endfor %}
+    </table>
+
+    <br>
+    <a href="/">Back to Home</a>
+    <br><br>
+    <a href="{% url 'add_product' %}">Add New Product</a>
+
+</body>
+</html>

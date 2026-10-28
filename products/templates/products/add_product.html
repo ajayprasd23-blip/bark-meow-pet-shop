@@ -1,0 +1,39 @@
+
+
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Product | BARK & MEOW</title>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+<body>
+
+    <nav class="navbar">
+        <div class="logo">🐾 BARK &amp; MEOW</div>
+        <div class="nav-links">
+            <a href="{% url 'home' %}">Home</a>
+            <a href="{% url 'product_list' %}">Products</a>
+        </div>
+    </nav>
+
+    <section class="section">
+        <h2>Add New Product</h2>
+
+       
+<form method="POST" enctype="multipart/form-data">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit" class="btn">Save Product</button>
+</form>
+
+    </section>
+
+    <footer class="footer">
+        <p>© 2026 BARK &amp; MEOW</p>
+    </footer>
+
+</body>
+</html>

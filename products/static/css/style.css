@@ -1,0 +1,145 @@
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f5f7f2;
+    color: #25352c;
+    margin: 0;
+}
+
+h1 {
+    background-color: #245c45;
+    color: white;
+    padding: 25px;
+    text-align: center;
+}
+
+h2, h3 {
+    color: #245c45;
+    margin: 20px;
+}
+
+p, ul {
+    margin: 20px;
+    font-size: 18px;
+}
+
+li {
+    padding: 8px;
+}
+.pet-images {
+    display: flex;
+    justify-content: center;
+    gap: 25px;
+    flex-wrap: wrap;
+    margin: 25px;
+}
+
+.pet-images img {
+    width: 250px;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 15px;
+    box-shadow: 0 4px 12px #00000025;
+}
+.navbar {
+    background-color: #245c45;
+    padding: 18px 8%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 15px;
+}
+
+.logo {
+    color: white;
+    font-size: 25px;
+    font-weight: bold;
+}
+
+.nav-links a {
+    color: white;
+    text-decoration: none;
+    margin-left: 20px;
+}
+
+.hero {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 30px;
+    flex-wrap: wrap;
+    padding: 55px 8%;
+    background: linear-gradient(120deg, #e0f0d9, #f8f5e9);
+}
+
+.hero-content {
+    flex: 1;
+    min-width: 250px;
+}
+
+.hero h1 {
+    background: none;
+    color: #245c45;
+    padding: 0;
+    text-align: left;
+    font-size: 38px;
+    margin-bottom: 18px;
+}
+
+.hero p {
+    margin: 0 0 25px;
+    line-height: 1.7;
+}
+
+.pet-images {
+    display: flex;
+    gap: 15px;
+    flex-wrap: wrap;
+}
+
+.pet-images img {
+    width: 200px;
+    height: 180px;
+    object-fit: cover;
+    border-radius: 15px;
+    box-shadow: 0 5px 15px #00000020;
+}
+
+.cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 20px;
+}
+
+.card {
+    background: white;
+    padding: 25px;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px #00000010;
+}
+
+.card h3 {
+    margin: 0 0 12px;
+}
+
+.card p {
+    margin: 0 0 15px;
+}
+
+.card a {
+    color: #245c45;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+@media (max-width: 600px) {
+    .hero h1 {
+        font-size: 29px;
+    }
+
+    .pet-images img {
+        width: 135px;
+        height: 130px;
+    }
+}

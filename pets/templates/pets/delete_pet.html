@@ -1,0 +1,44 @@
+
+
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Delete Pet | BARK & MEOW</title>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="logo">🐾 BARK &amp; MEOW</div>
+        <div class="nav-links">
+            <a href="{% url 'home' %}">Home</a>
+            <a href="{% url 'pet_list' %}">Pet List</a>
+        </div>
+    </nav>
+
+    <section class="section">
+        <h1>Delete Pet</h1>
+
+        <p>
+            Are you sure you want to delete
+            <strong>{{ pet.name }}</strong>?
+        </p>
+
+        <form method="POST">
+            {% csrf_token %}
+            <button type="submit" class="btn">
+                Yes, Delete Pet
+            </button>
+        </form>
+
+        <br>
+        <a href="{% url 'pet_list' %}">Cancel</a>
+    </section>
+
+    <footer class="footer">
+        <p>© 2026 BARK &amp; MEOW | Every Pet Deserves Love 🐾</p>
+    </footer>
+</body>
+</html>

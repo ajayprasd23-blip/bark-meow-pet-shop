@@ -1,0 +1,36 @@
+
+
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Pet | BARK & MEOW</title>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="logo">🐾 BARK &amp; MEOW</div>
+        <div class="nav-links">
+            <a href="{% url 'home' %}">Home</a>
+            <a href="{% url 'pet_list' %}">Pet List</a>
+        </div>
+    </nav>
+
+    <section class="section">
+        <h1>Add New Pet</h1>
+
+        <form method="POST">
+            {% csrf_token %}
+            {{ form.as_p }}
+
+            <button type="submit" class="btn">Save Pet</button>
+        </form>
+    </section>
+
+    <footer class="footer">
+        <p>© 2026 BARK &amp; MEOW | Every Pet Deserves Love 🐾</p>
+    </footer>
+</body>
+</html>
